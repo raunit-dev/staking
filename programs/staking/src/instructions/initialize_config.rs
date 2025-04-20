@@ -13,8 +13,8 @@ pub struct InitializeConfig<'info> {
     #[account(
         init,
         payer = admin,
-        space = InitSpace,
-        seeds = [b"config",admin.key().as_ref()],
+        space = StakeConfig::INIT_SPACE,
+        seeds = [&b"config"[..]],
         bump
     )]
     pub config: Account<'info,StakeConfig>,
@@ -31,8 +31,8 @@ pub struct InitializeConfig<'info> {
 impl<'info> InitializeConfig<'info> {
     pub fn initialize_config(&mut self,points_per_stake: u64,max_stake: u64,freeze_period: i64,bumps: &InitializeConfigBumps) -> Result<()> {
         self.config.set_inner(StakeConfig {
-            rewards_bump: self.reward_mint.bump,
-            bump: bump,
+            rewards_bump: bumps.config,
+            bump: bumps.reward_mint,
             points_per_stake,
             freeze_period,
             max_stake
