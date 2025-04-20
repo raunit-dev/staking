@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-// Explicitly import UserAccount to resolve ambiguity
+
 use crate::UserAccount;
 
 #[derive(Accounts)]

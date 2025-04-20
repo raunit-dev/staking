@@ -16,7 +16,14 @@ declare_id!("8KPrPekaN1ypQhTXfXLD9pk5jp4UoAnWtpP9jegMSNiR");
 pub mod staking {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize_config::handler(ctx)
+    pub fn initializeconfig(ctx: Context<InitializeConfig>) -> Result<()> {
+        Ok(())
+    }
+
+    pub fn initializeuser(ctx: Context<InitializUser>) -> Result<()> {
+         Ok(())
+    }
+    pub fn stake(ctx: Context<Stake>) -> Result<()> {
+        Ok(())
     }
 }

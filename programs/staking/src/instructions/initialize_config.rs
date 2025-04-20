@@ -31,7 +31,7 @@ pub struct InitializeConfig<'info> {
 impl<'info> InitializeConfig<'info> {
     pub fn initialize_config(&mut self,points_per_stake: u64,max_stake: u64,freeze_period: i64,bumps: &InitializeConfigBumps) -> Result<()> {
         self.config.set_inner(StakeConfig {
-            rewards_bump,
+            rewards_bump: self.reward_mint.bump,
             bump: bump,
             points_per_stake,
             freeze_period,
